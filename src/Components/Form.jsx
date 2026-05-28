@@ -1,16 +1,18 @@
 import { useState } from "react";
-import StepTwo from "./StepTwo";
-import App from "../App";
 
-const Form = ({ editForm }) => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Form = ({
+  setResultForm,
+  setIsEdit,
+  setUsername,
+  setEmail,
+  setPassword,
+}) => {
+  const [localUsername, setLocalUsername] = useState("");
+  const [localEmail, setLocalEmail] = useState("");
+  const [localPassword, setLocalPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [resultForm, setResultForm] = useState(false);
-  const [isEdit, setIsEdit] = useState(editForm);
-  console.log(editForm);
+
   return (
     <>
       <div>
@@ -18,19 +20,16 @@ const Form = ({ editForm }) => {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-
-            if (password !== passwordConfirm) {
+            if (localPassword !== passwordConfirm) {
               setErrorMessage("Mot de passe différents");
-            } else if (!username || !email) {
-              setErrorMessage("information manquantes");
+            } else if (!localUsername || !localEmail) {
+              setErrorMessage("Informations manquantes");
             } else {
+              setUsername(localUsername);
+              setEmail(localEmail);
+              setPassword(localPassword);
+              setIsEdit(false);
               setResultForm(true);
-              <App
-                show={resultForm}
-                username={username}
-                email={email}
-                password={password}
-              />;
             }
           }}
         >
@@ -38,36 +37,30 @@ const Form = ({ editForm }) => {
             <label htmlFor="name">Name</label>
             <input
               type="text"
-              placeholder="Sasir votre nom"
+              placeholder="Saisir votre nom"
               id="name"
-              value={username}
-              onChange={(event) => {
-                setUsername(event.target.value);
-              }}
+              value={localUsername}
+              onChange={(e) => setLocalUsername(e.target.value)}
             />
           </div>
           <div>
             <label htmlFor="email">Email</label>
             <input
               type="text"
-              placeholder="Sasir votre Email"
+              placeholder="Saisir votre Email"
               id="email"
-              value={email}
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
+              value={localEmail}
+              onChange={(e) => setLocalEmail(e.target.value)}
             />
           </div>
           <div>
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              placeholder="Sasir un mot de passe"
+              placeholder="Saisir un mot de passe"
               id="password"
-              value={password}
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
+              value={localPassword}
+              onChange={(e) => setLocalPassword(e.target.value)}
             />
           </div>
           <div>
@@ -77,14 +70,12 @@ const Form = ({ editForm }) => {
               placeholder="Confirmer le mot de passe"
               id="passwordConfirm"
               value={passwordConfirm}
-              onChange={(event) => {
-                setPasswordConfirm(event.target.value);
-              }}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
             />
           </div>
           <div>
             {errorMessage && <span>{errorMessage}</span>}
-            <button>Register</button>
+            <button type="submit">Register</button>
           </div>
         </form>
       </div>

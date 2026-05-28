@@ -1,16 +1,34 @@
-import "./App.css";
+import { useState } from "react";
 import Form from "./Components/Form";
 import StepTwo from "./Components/StepTwo";
-import { useState } from "react";
+import "./App.css";
 
-function App({ show, username, email, password }) {
-  const [resultForm, setResultForm] = useState(show);
-  console.log(username);
+function App() {
+  const [resultForm, setResultForm] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="container">
-      {!resultForm && <Form />}
-      {resultForm && (
-        <StepTwo username={username} email={email} password={password} />
+      {(!resultForm || isEdit) && (
+        <Form
+          setResultForm={setResultForm}
+          setIsEdit={setIsEdit}
+          setUsername={setUsername}
+          setEmail={setEmail}
+          setPassword={setPassword}
+        />
+      )}
+      {resultForm && !isEdit && (
+        <StepTwo
+          username={username}
+          email={email}
+          password={password}
+          setIsEdit={setIsEdit}
+          setResultForm={setResultForm}
+        />
       )}
     </div>
   );

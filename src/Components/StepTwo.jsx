@@ -1,8 +1,4 @@
-// import { useState } from "react";
-import Form from "./Form";
-
-const StepTwo = ({ username, email, password }) => {
-  //   const [resultForm, setResultForm] = useState(true);
+const StepTwo = ({ username, email, password, setIsEdit, setResultForm }) => {
   return (
     <>
       <h1>Results</h1>
@@ -14,7 +10,8 @@ const StepTwo = ({ username, email, password }) => {
         </div>
         <button
           onClick={() => {
-            <Form editForm="true" />;
+            setIsEdit(true);
+            setResultForm(false);
           }}
         >
           Editer vos infos
