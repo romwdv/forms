@@ -6,10 +6,13 @@ const Form = ({
   setUsername,
   setEmail,
   setPassword,
+  initialUsername,
+  initialEmail,
+  initialPassword,
 }) => {
-  const [localUsername, setLocalUsername] = useState("");
-  const [localEmail, setLocalEmail] = useState("");
-  const [localPassword, setLocalPassword] = useState("");
+  const [localUsername, setLocalUsername] = useState(initialUsername || "");
+  const [localEmail, setLocalEmail] = useState(initialEmail || "");
+  const [localPassword, setLocalPassword] = useState(initialPassword || "");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 

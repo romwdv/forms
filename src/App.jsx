@@ -19,6 +19,9 @@ function App() {
           setUsername={setUsername}
           setEmail={setEmail}
           setPassword={setPassword}
+          initialUsername={username}
+          initialEmail={email}
+          initialPassword={password}
         />
       )}
       {resultForm && !isEdit && (
