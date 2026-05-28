@@ -1,16 +1,18 @@
 import { useState } from "react";
 import StepTwo from "./StepTwo";
 
-const Form = () => {
+const Form = ({ editForm }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [resultForm, setResultForm] = useState(false);
+  const [isEdit, setIsEdit] = useState(editForm);
+  console.log(editForm);
   return (
     <>
-      {!resultForm && (
+      {(!resultForm || isEdit) && (
         <div>
           <h1>Create account</h1>
           <form
