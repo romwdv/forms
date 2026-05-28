@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  font-family: "Public Sans", sans-serif;
+  font-weight: 200;
+}
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.results,
+.results > div,
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  justify-content: center;
+  align-items: center;
+  width: 1024px;
+  margin: 0 auto;
+}
+
+form {
+  margin-bottom: 25px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 300px;
+  background-color: #fcf9f9;
+  border: 1px solid #d3d3d3;
+  outline: none;
+  height: 45px;
+  padding-left: 10px;
+  margin: 5px 0 25px;
+  border-radius: 5px;
+}
+
+button {
+  width: 300px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #5b47d3;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #5b47d3;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+form > div > span {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #fef1f2;
+  color: #a23f5b;
+  border-radius: 5px;
+  padding: 5px 0;
+  margin-bottom: 15px;
+}
+
+.results > div {
+  width: 300px;
+  background-color: lightgrey;
+  font-size: 20px;
+  padding: 30px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.results > div > span {
+  margin-bottom: 20px;
+}
