@@ -33,6 +33,7 @@ const Form = ({
               setPassword(localPassword);
               setIsEdit(false);
               setResultForm(true);
+              setErrorMessage("");
             }
           }}
         >
